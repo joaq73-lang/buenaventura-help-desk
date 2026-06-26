@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #F8F9FA;
+  color: #2F3640;
+  line-height: 1.5;
+}
+
+/* ---- Buenaventura design tokens ---- */
+:root {
+  --bv-teal:       #1A7A6A;
+  --bv-teal-light: #2A9A88;
+  --bv-teal-dark:  #145F52;
+  --bv-gray:       #4A4A4A;
+  --bv-cream:      #F5F0E8;
+  --bv-cream-dark: #EDE6D8;
+}
+
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    @apply bg-bv-teal text-white font-semibold py-2 px-4 rounded-lg
+           transition-all duration-200
+           hover:bg-bv-teal-light active:bg-bv-teal-dark
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-slate-dark text-white font-semibold py-2 px-4 rounded-lg
+           transition-all duration-200 hover:bg-slate-700 active:bg-slate-800;
+  }
+
+  .btn-success {
+    @apply bg-green-600 text-white font-semibold py-2 px-4 rounded-lg
+           transition-all duration-200 hover:bg-green-700;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white font-semibold py-2 px-4 rounded-lg
+           transition-all duration-200 hover:bg-red-700;
+  }
+
+  .btn-outline {
+    @apply border-2 border-bv-teal text-bv-teal font-semibold py-2 px-4 rounded-lg
+           transition-all duration-200 hover:bg-bv-teal hover:text-white;
+  }
+
+  /* Inputs */
+  .input-field {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg
+           focus:outline-none focus:ring-2 focus:ring-bv-teal focus:border-transparent
+           transition-all duration-200 bg-white;
+  }
+
+  .input-error {
+    @apply border-red-500 focus:ring-red-500;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-xl shadow-md p-6;
+  }
+
+  /* Sidebar items */
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-2.5 text-gray-300 rounded-lg
+           transition-all duration-200 hover:bg-white/10 hover:text-white cursor-pointer;
+  }
+
+  .sidebar-item-active {
+    @apply bg-bv-teal/30 text-white border-l-4 border-bv-teal-light;
+  }
+
+  /* Table */
+  .table-header {
+    @apply bg-slate-dark text-white font-semibold text-xs uppercase tracking-wider;
+  }
+
+  .table-row {
+    @apply border-b border-gray-100 hover:bg-gray-50 transition-colors duration-150;
+  }
+
+  /* Badges */
+  .badge           { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium; }
+  .badge-active    { @apply bg-status-active   text-status-activeText; }
+  .badge-critical  { @apply bg-status-critical text-status-criticalText; }
+  .badge-warning   { @apply bg-status-warning  text-status-warningText; }
+  .badge-inactive  { @apply bg-gray-200        text-gray-700; }
+
+  /* Chips */
+  .chip {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-medium
+           bg-bv-teal-50 text-bv-teal border border-bv-teal-100;
+  }
+
+  .chip-active { @apply bg-bv-teal text-white; }
+
+  /* Stat cards */
+  .stat-card {
+    @apply bg-white rounded-xl shadow-md p-6 border-l-4 border-bv-teal;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #a1a1a1; }
+
+/* Animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+.blink-alert { animation: blink 1s ease-in-out infinite; }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.modal-overlay { animation: fadeIn  0.2s ease-out; }
+.modal-content { animation: slideUp 0.3s ease-out; }
+.animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
