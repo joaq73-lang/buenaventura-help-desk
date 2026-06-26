@@ -123,7 +123,7 @@ function MenuItemComponent({ item, expanded, toggle, depth = 0 }: {
 function BuenaventuraIcon({ size = 32 }: { size?: number }) {
   return (
     <img
-      src="/images/image copy.png"
+      src="./images/image copy.png"
       alt="B"
       style={{ width: size, height: size, objectFit: 'contain' }}
       className="drop-shadow"
@@ -158,7 +158,7 @@ export default function Dashboard() {
       <div className="flex items-center justify-between px-4 py-4 border-b border-white/10">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-lg flex-shrink-0">
-            <img src="/images/image copy.png" alt="Logo" className="w-full h-full object-contain" />
+            <img src="./images/image copy.png" alt="Logo" className="w-full h-full object-contain" />
           </div>
           <div>
             <p className="text-white font-bold text-sm leading-tight">Buenaventura</p>
