@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/buenaventura-help-desk/',
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
