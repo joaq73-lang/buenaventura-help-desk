@@ -59,7 +59,7 @@ export default function Login() {
           >
             {/* Full Buenaventura logo */}
             <img
-              src="/images/image.png"
+              src="./images/image.png"
               alt="Buenaventura"
               className="h-14 w-auto object-contain mb-5 drop-shadow-sm"
             />
